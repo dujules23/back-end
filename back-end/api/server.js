@@ -12,7 +12,7 @@ server.use(express.json())
 server.use(helmet())
 server.use(cors())
 server.use('/api/ping', pingRouter)
-server.use('/api/:posts', postsRouter)
+server.use('/api/posts', postsRouter)
 
 server.get("/", (req, res) => {
   res.json({kolinSays: "The future is nigh, Server is up and running"})
