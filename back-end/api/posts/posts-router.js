@@ -14,12 +14,15 @@ let endpoints = [
 
 router.get("/", (req, res, next) => {
   
-  Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then((
-    [{data: history}, {data: tech}, {data: science}, {data: startups}, {data: politics}, {data: health} ] ) => {
-      res.status(200).send( {history, tech, science, startups, politics, health} )
-    }
-  );
+  Promise.all(
+    endpoints.map((endpoint) => axios.get(endpoint)))
+    .then(([{data: history}, {data: tech}, {data: science}, {data: startups}, {data: politics}, {data: health}]) => {
+      res.status(200).send({history, tech, science, startups, politics, health} )
+    })
+    .catch((err) => next(err))
 });
+  
+
 
 
 
