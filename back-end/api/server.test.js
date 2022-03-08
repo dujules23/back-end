@@ -8,7 +8,7 @@ describe('endpoints', () => {
       expect(res.status).toBe(200)
     })
   })
-  describe("[GET] /api/posts", () => {
+  describe("[GET] /api/posts ", () => {
     it("responds with a 200", async () => {
       const res = await request(server).get("/api/posts")
     })
